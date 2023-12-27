@@ -1,0 +1,11 @@
+{
+    "PAGE": [
+        {
+            "PAGE_ID": 1,
+            "NAME": "Dashboard",
+            "REACT_PATH": "Dashboard/Dashboard",
+            "PATH": "Dashboard",
+            "PAGE_CODE": "1"
+        }
+    ]
+}

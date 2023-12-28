@@ -1,5 +1,7 @@
-import { Box } from '@mui/material';
 import React from 'react';
+
+// Material UI
+import { Box } from '@mui/material';
 
 const Dashboard = () => {
     return (

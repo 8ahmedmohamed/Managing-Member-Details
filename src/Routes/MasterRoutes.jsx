@@ -7,8 +7,9 @@ import { useRoutes, Navigate } from 'react-router-dom';
 import RoutesList from './Routes.json';
 
 // Layouts
-const Container = lazy(() => import("../../Container/Container"));
-const Home = lazy(() => import("../../Layouts/Pages/Home/Home"));
+const Container = lazy(() => import("../Container/Container"));
+const Home = lazy(() => import("../Layouts/Pages/Home/Home"));
+const Login = lazy(() => import("../Layouts/Authentication/Login/Login"));
 
 const MasterRoutes = () => {
     const Path = '/';
@@ -22,7 +23,7 @@ const MasterRoutes = () => {
             const pages = {};
             for (let Index = 0; Index < RoutesList.PAGE.length; Index++) {
                 const Page = RoutesList.PAGE[Index];
-                pages[Page.NAME] = lazy(() => import(`../../Layouts/Pages/${Page.REACT_PATH}`));
+                pages[Page.NAME] = lazy(() => import(`../Layouts/Pages/${Page.REACT_PATH}`));
             }
             setPages(pages);
         }
@@ -44,22 +45,15 @@ const MasterRoutes = () => {
     return useRoutes([
         {
             path: Path,
+            element: AccessToken ? <Container /> : <Navigate to={Path + 'login'} />,
             children: [
-                {
-                    path: "",
-                    element: AccessToken ? <Container /> : <Navigate to={Path + 'login'} />,
-                    children: [
-                        { path: "", element: <Home /> },
-                        { path: "pages", children: routesData },
-                    ]
-                }
+                { path: "", element: <Home /> },
+                { path: "Member", children: routesData },
             ]
-        },
-        {
-            path: Path + 'login', element: AccessToken ? <Navigate to={Path} /> : <Home />
-        },
-        {   
-            path: "/*", element: routesData.length ? '404' : '...Loading' 
+        }, {
+            path: Path + 'login', element: AccessToken ? <Navigate to={Path} /> : <Login />
+        }, {
+            path: "/*", element: routesData.length ? '404' : '...Loading'
         }
     ]);
 }

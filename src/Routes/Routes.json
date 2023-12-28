@@ -2,10 +2,24 @@
     "PAGE": [
         {
             "PAGE_ID": 1,
-            "NAME": "Dashboard",
-            "REACT_PATH": "Dashboard/Dashboard",
-            "PATH": "Dashboard",
+            "NAME": "CreateMember",
+            "REACT_PATH": "CreateMember/CreateMember",
+            "PATH": "CreateMember",
             "PAGE_CODE": "1"
+        },
+        {
+            "PAGE_ID": 2,
+            "NAME": "EditMember",
+            "REACT_PATH": "EditMember/EditMember",
+            "PATH": "EditMember",
+            "PAGE_CODE": "2"
+        },
+        {
+            "PAGE_ID": 3,
+            "NAME": "ShowMember",
+            "REACT_PATH": "ShowMember/ShowMember",
+            "PATH": "ShowMember",
+            "PAGE_CODE": "3"
         }
     ]
 }

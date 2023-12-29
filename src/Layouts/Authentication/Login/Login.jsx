@@ -8,6 +8,8 @@ import { useForm } from 'react-hook-form';
 // Material UI
 import { Box } from '@mui/material';
 
+import { toast } from 'react-toastify';
+
 // Theme
 import useStyles from './Theme';
 
@@ -25,7 +27,10 @@ const Login = () => {
 
     const onSubmit = () => {
         localStorage.access_token = Math.random().toString(36).substring(2);
-        Navigate('/');
+        toast.success('Logged In Successfully', { position: toast.POSITION.TOP_RIGHT });
+        setTimeout(() => {
+            Navigate('/');
+        }, 50);
     }
 
     return (

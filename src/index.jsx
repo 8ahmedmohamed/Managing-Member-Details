@@ -8,6 +8,9 @@ import { BrowserRouter } from 'react-router-dom';
 // React Toastify
 import { ToastContainer } from 'react-toastify';
 
+// Vendors Styles
+import 'react-toastify/dist/ReactToastify.css';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
